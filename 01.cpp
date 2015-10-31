@@ -17,7 +17,7 @@ class Array {
     boost::shared_ptr<T[]> _data;
 
     template<typename... Args>
-    Array(Args&&... args) : _shape{args...} {static_assert(sizeof...(args) == k, "Requested shape does not match rank.");
+    Array(const Args&... args) : _shape{args...} {static_assert(sizeof...(args) == k, "Requested shape does not match rank.");
       for(int i=0; i<k; ++i) _stride[i] = std::accumulate(_shape + 1, _shape + (k-i), 1, std::multiplies<int>());
       _nelem = std::accumulate(_shape, _shape + k, 1, std::multiplies<int>());
       _data  = boost::shared_ptr<T[]>(new T[_nelem]);
