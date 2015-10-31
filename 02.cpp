@@ -25,6 +25,8 @@ class Array {
       _data  = boost::shared_ptr<T[]>(new T[_nelem]);
     }
 
+
+    // do we need these?
     Array(Array&& other) {
       boost::shared_ptr<T[]>::swap(this->_data, other._data); other._data.reset();
       std::swap(this->_shape , other._shape );
