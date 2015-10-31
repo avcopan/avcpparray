@@ -64,5 +64,7 @@ int main() {
       for(int k=0; k<5; ++k)
         std::cout << std::setw(10) << std::fixed << std::setprecision(5) << A(i,j,k) << (k==4 ? '\n' : ' ');
 
+  A(0,0);
+
   std::cout << A._nelem << std::endl;
 }
